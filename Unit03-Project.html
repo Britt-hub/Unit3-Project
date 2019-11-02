@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Password Generator Homework</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Password Generator</h1>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+        <!-- <div class="container"> -->
+        <!-- <div class="row">
+      <div class="col-lg-B, col-sm-12">
+        <div class="content"> -->
+        <h2>Generate A Password</h2>
+        <br />
+
+        <form class="was-validated">
+          <div class="mb-3">
+            <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Your Secure Password"
+              required></textarea>
+            <div class="invalid-feedback">
+                <br>
+
+              <button type="button" id="generate" class="Create A Password btn-danger btn-lg">Create A Password</button>
+              <button id="copy" class="Copy to Clipboard btn-danger btn-lg">Copy to Clipboard</button>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+
+
+  </div>
+  <script>
+    var specialCharacter;
+    var numericCharacter;
+    var upperCharacter;
+    var lowerCharacter;
+
+    document.getElementById("copy").addEventListener("click", myFunction)
+    function myFunction() {
+      console.log("got here")
+      var copyText = document.getElementById("validationTextarea");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("Copied the text: " + copyText.value);
+    }
+
+    document.getElementById("generate").addEventListener("click", generatePassword)
+    function generatePassword() {
+      var generatePassword = document.getElementById("validationTextarea");
+      var numCharacter = prompt("How many characters would you like your password to contain?");
+      if (numCharacter > 8 && numCharacter < 128) {
+         specialCharacter = confirm("Click ok to confirm including special characters");
+         numericCharacter = confirm ("Click ok to confirm including numeric characters");
+         upperCharacter = confirm ("Click ok to confirm upper case characters");
+         lowerCharacter = confirm ("Click ok to confirm lower case characters");
+         newPassword = randomPassword (numCharacter);
+        generatePassword.innerHTML = newPassword
+      }
+      else {
+        alert("Needs to be between 8 and 128 characters")
+        return;
+      }
+
+    }
+
+function randomPassword(length) {
+ var chars;
+
+if (specialCharacter ) {
+  chars += "@#$%^&*()-+>!"
+}
+
+if (numericCharacter) {
+  chars += "0123456789"
+}
+
+if (upperCharacter) {
+  chars += "ABCDEFGHIJKLMNOPRSTUVWXYZ"
+}
+
+if (lowerCharacter) {
+  chars += "abcdefghijklmnopqrstuvwxyz"
+}
+
+
+    var pass = "";
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    return pass; {
+
+    }
+
+}
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

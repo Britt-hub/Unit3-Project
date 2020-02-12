@@ -10,7 +10,7 @@ When being prompted to generate a password, the user will be prompt to choose fr
 Once all prompts are answered, the user will be presented with a password matching the answered prompts. The password will be displayed in the text field and can also be copied to your clipboard.
 
 
-[Employee Tracker](passwordgenerator.png)
+[Password](passwordgenerator.png)
 
 ## Business Contenet
 
